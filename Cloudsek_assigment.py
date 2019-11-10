@@ -60,7 +60,7 @@ def fiveDay(currentURL,driver):
     l3=[]
     for headers in driver.find_elements_by_xpath("//thead//th"):
         l1.append(headers.text)
-    click.echo(l1)
+    #click.echo(l1)
     for items in driver.find_elements_by_xpath("//tbody//tr"):
         l2=[]
         for rows in driver.find_elements_by_xpath("//tbody/tr["+j+"]/td"):
@@ -183,7 +183,7 @@ def dateData(driver):
                             
 
 @click.command()
-@click.option('--place', prompt='enter place(mandatody field)',help='Place for which we need weather')
+@click.option('--place', prompt='enter place(mandatory field)',help='Place for which we need weather')
 @click.option('--date', prompt='enter date(dd/mm/yyyy) if any otherwise press ENTER',default='',help='Date for which we need weather')
 @click.option('--forecast', prompt='enter forecast from hourly, 5day, 10day and monthly or simply press ENTER for choosing today as forecast',default='today',help='Type of forecast')
 
@@ -196,7 +196,7 @@ def getData(place,date,forecast):
         #chrome_options = Options()
         #chrome_options.add_argument("--log-level=3")
         #driver = webdriver.Chrome(chrome_options=chrome_options)
-        driver = webdriver.Chrome('C:/Users/yash/Desktop/chromedriver/chromedriver')
+        driver = webdriver.Chrome('chromedriver')
         actions = ActionChains(driver)
         driver.get("https://weather.com/en-IN/")
         driver.implicitly_wait(15)
